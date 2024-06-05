@@ -240,7 +240,9 @@ class Release {
 }
 exports.Release = Release;
 const getTectonicRelease = (githubToken, version) => __awaiter(void 0, void 0, void 0, function* () {
-    const octo = (0, github_1.getOctokit)(githubToken);
+    const octo = (0, github_1.getOctokit)(githubToken, {
+        baseUrl: 'https://api.github.com'
+    });
     const validVersion = (0, semver_1.valid)(version);
     if (validVersion) {
         const { data: releaseData, status } = yield octo.rest.repos.getReleaseByTag({
