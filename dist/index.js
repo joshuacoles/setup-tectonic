@@ -232,7 +232,7 @@ class Release {
             darwin: `${versionPrefix}-apple-${platform}.tar.gz`,
             linux: favourLinuxAppImage
                 ? `${versionPrefix}.AppImage`
-                : `${versionPrefix}-unknown-linux-gnu.tar.gz`
+                : `${versionPrefix}-unknown-linux-musl.tar.gz`
         };
         const fileName = platformFileNames[platform];
         return this.assets.find(ghAsset => ghAsset.name === fileName);
