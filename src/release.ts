@@ -50,7 +50,10 @@ export const getTectonicRelease = async (
   githubToken: string,
   version?: string
 ) => {
-  const octo = getOctokit(githubToken)
+  const octo = getOctokit(githubToken, {
+    baseUrl: 'https://api.github.com'
+  })
+
   const validVersion = valid(version)
 
   if (validVersion) {
